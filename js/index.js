@@ -1,9 +1,3 @@
-$.get("https://content.googleapis.com/youtube/v3/search?q=denvau&type=video&maxResults=9&part=snippet&key=AIzaSyDA2ktxtMTB0avJMHbFgg1kqM_vWWou_RU", 
-function(api){
-
-    console.log(api);
-});
-
 
 document.addEventListener("DOMContentLoaded", function(event){
 
@@ -13,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function(event){
             loadVideo(this.value);
         }
     }
-    loadVideo("Den vau");
+    loadVideo("her86m2");
 });
 
 var modal = document.getElementById('myModal');
@@ -34,8 +28,9 @@ window.onclick = function (event){
 
 function loadVideo(keyword) {
     var YOUTUBE_API = "https://content.googleapis.com/youtube/v3/search?q="+ keyword +
-    "&type=video&maxResults=9&part=snippet&key=AIzaSyDA2ktxtMTB0avJMHbFgg1kqM_vWWou_RU"
+    "&type=video&maxResults=9&part=snippet&key=AIzaSyDdJtV6wOsBXH4psj5DzA5WCjhuHTYUP0M"
 
+    console.log(YOUTUBE_API);
     var xhr = new XMLHttpRequest();
     xhr.open ("GET", YOUTUBE_API, true);
     xhr.onreadystatechange = function (){
