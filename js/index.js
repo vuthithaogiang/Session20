@@ -1,3 +1,10 @@
+$.get("https://content.googleapis.com/youtube/v3/search?q=denvau&type=video&maxResults=9&part=snippet&key=AIzaSyDA2ktxtMTB0avJMHbFgg1kqM_vWWou_RU", 
+function(api){
+
+    console.log(api);
+});
+
+
 document.addEventListener("DOMContentLoaded", function(event){
 
     var inputSearch = document.getElementById('keyword');
