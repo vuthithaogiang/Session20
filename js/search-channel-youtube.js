@@ -1,44 +1,60 @@
-document.addEventListener("DOMContentLoaded", function(event){
 
+
+document.addEventListener("DOMContentLoaded", function (event) {
     var inputSearch = document.getElementById('keyword');
-    inputSearch.onkeydown = function(event){
-        if(event.keyCode == 13){
+    var msg = document.getElementById('msg');
+
+    inputSearch.onkeydown = function (event) {
+        if(inputSearch.value === "" && event.keyCode == 13){
+            console.log("failer");
+            msg.innerHTML = "Task can not be blank!";
+
+        }
+        if(inputSearch.value !== "" && event.keyCode == 13){
+            console.log('success');
+            msg.innerHTML = "";
             loadVideo(this.value);
         }
+       
     }
+
     loadVideo("her86m2");
 });
 
+
+
 var modal = document.getElementById('myModal');
 
-var span = document.getElementsByClassName("close") [0];
+var span = document.getElementsByClassName("close")[0];
 
 var videoFrame = document.getElementById("video-frame");
 
-span.onclick = function(){
+
+
+span.onclick = function () {
     closeVideo();
 }
 
-window.onclick = function (event){
-    if(event.target == modal){
+window.onclick = function (event) {
+    if (event.target == modal) {
         closeVideo();
     }
 }
 
 function loadVideo(keyword) {
-    var YOUTUBE_API = "https://content.googleapis.com/youtube/v3/search?q="+ keyword +
-    "&type=video&type=channel&maxResults=10&part=snippet&key=AIzaSyBVlP4K74N2Chpk0G5TwzcjSQoCmTho_Ek"
+    var YOUTUBE_API = "https://content.googleapis.com/youtube/v3/search?q=" + keyword +
+        "&type=video&type=channel&maxResults=10&part=snippet&key=AIzaSyCAuzqxRYO2bM9S14C9BkT_vMvu9G8ytyo"
 
     console.log(YOUTUBE_API);
     var xhr = new XMLHttpRequest();
-    xhr.open ("GET", YOUTUBE_API, true);
-    xhr.onreadystatechange = function (){
-        if(this.readyState == 4 && this.status == 200){
+    xhr.open("GET", YOUTUBE_API, true);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
             var responseJson = JSON.parse(this.responseText);
             var htmlContent = "";
 
-            for(var i = 0; i < responseJson.items.length; i++){
-                if(responseJson.items[i].id.kind == 'youtube#channel'){
+            for (var i = 0; i < responseJson.items.length; i++) {
+                if (responseJson.items[i].id.kind == 'youtube#channel') {
                     continue;
                 }
 
@@ -47,7 +63,7 @@ function loadVideo(keyword) {
                 var videoDescription = responseJson.items[i].snippet.description;
                 var videoThumbnail = responseJson.items[i].snippet.thumbnails.medium.url;
 
-                htmlContent += '<div class="video" onclick="showVideo(\''+ videoId +'\')">'
+                htmlContent += '<div class="video" onclick="showVideo(\'' + videoId + '\')">'
                 htmlContent += '<img src="' + videoThumbnail + '">'
                 htmlContent += '<div class="title">' + videoTitle + '</div>'
                 htmlContent += '</div>'
@@ -55,7 +71,7 @@ function loadVideo(keyword) {
 
             document.getElementById("list-video").innerHTML = htmlContent;
         }
-        else if(this.readyState == 4){
+        else if (this.readyState == 4) {
             console.log("Fails");
         }
 
@@ -63,14 +79,14 @@ function loadVideo(keyword) {
     xhr.send();
 }
 
-function closeVideo(){
+function closeVideo() {
     modal.style.display = "none";
-    videoFrame.src="";
+    videoFrame.src = "";
 }
 
 function showVideo(videoId) {
-    videoFrame.src= "https://www.youtube.com/embed" + videoId + "?autoplay=1";
-    setTimeout(function(){
+    videoFrame.src = "https://www.youtube.com/embed" + videoId + "?autoplay=1";
+    setTimeout(function () {
         modal.style.display = "block";
     }, 300);
 }

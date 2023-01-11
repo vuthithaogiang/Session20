@@ -1,14 +1,27 @@
 
-document.addEventListener("DOMContentLoaded", function(event){
 
+
+document.addEventListener("DOMContentLoaded", function (event) {
     var inputSearch = document.getElementById('keyword');
-    inputSearch.onkeydown = function(event){
-        if(event.keyCode == 13){
+    var msg = document.getElementById('msg');
+
+    inputSearch.onkeydown = function (event) {
+        if(inputSearch.value === "" && event.keyCode == 13){
+            console.log("failer");
+            msg.innerHTML = "Task can not be blank!";
+
+        }
+        if(inputSearch.value !== "" && event.keyCode == 13){
+            console.log('success');
+            msg.innerHTML = "";
             loadVideo(this.value);
         }
+       
     }
+
     loadVideo("her86m2");
 });
+
 
 var modal = document.getElementById('myModal');
 
@@ -28,7 +41,7 @@ window.onclick = function (event){
 
 function loadVideo(keyword) {
     var YOUTUBE_API = "https://content.googleapis.com/youtube/v3/search?q="+ keyword +
-    "&type=video&maxResults=9&part=snippet&key=AIzaSyDdJtV6wOsBXH4psj5DzA5WCjhuHTYUP0M"
+    "&type=video&maxResults=9&part=snippet&key=AIzaSyCAuzqxRYO2bM9S14C9BkT_vMvu9G8ytyo"
 
     console.log(YOUTUBE_API);
     var xhr = new XMLHttpRequest();

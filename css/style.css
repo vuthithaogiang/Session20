@@ -10,8 +10,19 @@ footer{
 
 header{
     padding: 15px;
+    
+    
+}
+.logo{
+    width: 30px;
 }
 
+#msg{
+    color: red;
+    font-size: 12px;
+    position:absolute;
+    left: 170px;
+}
 header .logo img{
     float: left;
     width: 30%;
@@ -94,7 +105,9 @@ header::after{
 }
 
 .video .title{
-    font-weight:bold;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: #4b2b31;
     margin-top: 10px;
     height: 47px;
     overflow: auto;
@@ -104,12 +117,37 @@ header::after{
 }
 
 .search-box{
-    margin: 15px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: #f9f9f9;
+    width: 500px;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+    margin-top: 40px;;
+
+
+}
+#keyword{
+    border: none;
 }
 .search-box input{
-    width: 50%;
+    width: 60%;
     height: 30px;
+    border: none;
     border-radius: 20px;
+    background-color: white;
+    
+}
+
+.search-box input:hover{
+    background-color: white;
+    border: none;
 }
 
 .modal{
@@ -184,4 +222,12 @@ header::after{
     .modal-content{
         width: 100%;
     }
+}
+
+.search-bar{
+    margin-left: 10px;
+}
+
+.search-bar:hover{
+    color: #7f867b;
 }
