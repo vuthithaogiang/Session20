@@ -1,0 +1,78 @@
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+   padding: 50px;
+}
+
+.content{
+
+    border: none;
+    border-radius: 12px;
+    background-color: #758d93;
+    width: 150px;
+    height: 150px;
+    position: relative;
+}
+
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    position: relative;
+}
+
+.name-city{
+    top: 5px;
+    right: 15px;
+    position: absolute;
+    font-size: 25px;
+    color:white;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.icon img{
+    margin-top:5px; ;
+    width: 60px;
+}
+
+.content-body{
+    position:absolute;
+    bottom: 40px;
+    left: 7px;
+    border: none;
+    width: 100%;
+}
+
+.temp-f{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+}
+
+.date-time{
+    color: white;
+    font-size: 13px;
+    font-family: 'Courier New', Courier, monospace;
+    position:absolute;
+    top: 75px;
+    
+}
+.temp{
+    color: white;
+    font-size: 40px;
+    font-weight:bolder;
+}
+
+.temp-f i{
+    color:white;
+
+}
+
+.description{
+    color: white;
+    font-size: small;
+}

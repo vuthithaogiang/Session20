@@ -23,7 +23,7 @@ function(api){
     var hour = today.getHours();
     var minute = today.getMinutes();
 
-    console.log(dayOfMonth);
+    
     var dayOfWeek;
 
     if(day === 0){
@@ -52,8 +52,9 @@ function(api){
 
     console.log(dayOfWeek);
 
-    $('.date-time').html(dayOfWeek + " " + hour + " : " + minute);
-    
+    $('.date-time').html(dayOfWeek + " " + hour + ":" + minute);
+    $('.temp').html(api[0].Temperature.Value);
+    $('.description').html(api[0].IconPhrase);
    
 });
 
